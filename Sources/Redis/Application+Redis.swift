@@ -4,7 +4,7 @@ import NIOCore
 import Logging
 
 extension Application {
-    public struct Redis {
+    public struct Redis: Sendable {
         public let id: RedisID
 
         @usableFromInline
