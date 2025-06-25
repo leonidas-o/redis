@@ -34,8 +34,8 @@ extension Application.Caches {
     }
     
     /// A cache configured for a given Redis ID and the default coders.
-    public func redis(_ id: RedisID) -> Cache {
-        self.redis(id, encoder: JSONEncoder(), decoder: JSONDecoder())
+    public func redis(_ id: RedisID, jsonEncoder: JSONEncoder = JSONEncoder(), jsonDecoder: JSONDecoder = JSONDecoder()) -> Cache {
+        self.redis(id, encoder: jsonEncoder, decoder: jsonDecoder)
     }
 
     /// A cache configured for a given Redis ID and using the provided encoder and decoder.
@@ -58,8 +58,8 @@ extension Application.Caches.Provider {
     }
 
     /// Configures the application cache to use the given Redis ID and the default coders.
-    public static func redis(_ id: RedisID) -> Self {
-        self.redis(id, encoder: JSONEncoder(), decoder: JSONDecoder())
+    public static func redis(_ id: RedisID, jsonEncoder: JSONEncoder = JSONEncoder(), jsonDecoder: JSONDecoder = JSONDecoder()) -> Self {
+        self.redis(id, encoder: jsonEncoder, decoder: jsonDecoder)
     }
     
     /// Configures the application cache to use the given Redis ID and the provided encoder and decoder.
